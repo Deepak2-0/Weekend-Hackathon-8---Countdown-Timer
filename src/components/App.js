@@ -4,18 +4,18 @@ import "../styles/App.css";
 const App = () => {
   // write your code here
 
-  const [remTime, setRemTime] = useState("");
+  const [remTime, setRemTime] = useState(0);
   const [counterValue, setCounterValue] = useState("");
 
   function handleKeyDown(el) {
     if (el.keyCode === 13) {
-      setCounterValue(() => {
-        return Math.floor(counterValue);
-      });
+      // setCounterValue(() => {
+      //   return Math.floor(counterValue);
+      // });
 
-      if (Number.isNaN(counterValue)) {
-        setCounterValue(0);
-      }
+      // if (Number.isNaN(counterValue)) {
+      //   setCounterValue(0);
+      // }
       setRemTime(counterValue);
 
       setCounterValue("");
@@ -23,8 +23,16 @@ const App = () => {
   }
 
   function handleChange(el) {
-    //console.log(el.target.value);
-    setCounterValue(el.target.value);
+    let temp = Math.floor(el.target.value);
+
+    if (Number.isNaN(temp)) {
+      setCounterValue(0);
+      return;
+    }
+
+    setCounterValue(temp);
+
+    // setCounterValue(el.target.value);
   }
 
   useEffect(() => {
@@ -58,7 +66,7 @@ const App = () => {
           />
         </h1>
       </div>
-      <div id="current-time">{remTime <= 5 && remTime}</div>
+      <div id="current-time">{remTime}</div>
     </div>
   );
 };
