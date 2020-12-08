@@ -9,13 +9,6 @@ const App = () => {
 
   function handleKeyDown(el) {
     if (el.keyCode === 13) {
-      // setCounterValue(() => {
-      //   return Math.floor(counterValue);
-      // });
-
-      // if (Number.isNaN(counterValue)) {
-      //   setCounterValue(0);
-      // }
       setRemTime(counterValue);
 
       setCounterValue("");
@@ -31,8 +24,6 @@ const App = () => {
     }
 
     setCounterValue(temp);
-
-    // setCounterValue(el.target.value);
   }
 
   useEffect(() => {
